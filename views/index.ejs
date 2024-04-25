@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Weather</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" href="https://img.icons8.com/office/16/000000/sunset--v2.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css" integrity="sha512-QfDd74mlg8afgSqm3Vq2Q65e9b3xMhJB4GZ9OcHDVy1hZ6pqBJPWWnMsKDXM7NINoKqJANNGBuVRIpIJ5dogfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body class="background-image">
+
+     <!-- navbar -->
+     <div class="container-fluid main_menu">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">WeatherApp <i class="fa-solid fa-sun mad"></i>
+                      </a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#cont">About</a>
+                          </li>
+                          
+                
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <!-- left side div -->
+                    <div class="col-md-6 col-12  main_header_left">
+                        <p>Welcome to WeatherApp</p>
+                        <h1>Get the latest <span class="text_color">Weather</span> info of your city</h1>
+                        <a href="#cont"><button>Check now</button></a>
+                    </div>
+                    <!-- right side div -->
+                    <div class="col-md-6 col-12  main_header_right">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="images/bg1.png" class=" w-100 height" alt="...">
+                              </div>
+              
+                              <div class="carousel-item">
+                                <img src="images/bg3.jpg" class=" w-100 height" alt="...">
+                              </div> 
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Get Weather -->
+    <div class="container" id="cont">
+        <fieldset>
+            <form action="/" method="post">
+                <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+                <input type="submit" class="ghost-button" value="Get Weather" style="color: white; background-color: #1e272e;">
+            </form>
+        </fieldset>
+        <%if( weather !== null){ %>
+            <div class="grid">
+                <p>
+                    <%= place %>
+                </p>
+                <p class="text-muted small">
+                    <%= timezone %>
+                </p>
+                
+            </div>
+            
+
+
+            <!-- Get Weather cards -->
+            <div class="card-deck">
+                <div class="card card-accent-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Summary</div>
+                    <div class="card-body text-dark">
+                        <img src="<%= icon %>" alt="Weather-Icon">
+                        <h5 class="card-title">Temperature</h5>
+                        <p class="card-text">
+                            In Degrees:
+                            <%= temp %>°C/
+                                <%= fahrenheit %>°F
+                        </p>
+                        <h5 class="card-title">Main</h5>
+                        <p class="card-text">
+                            <%= main %>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-deck">
+                    <div class="card card-acTomorrowcent-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Description</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Overall Description: </h5>
+                            <p class="card-text">
+                                <%= description %>
+                            </p>
+                            <h5 class="card-title">Cloud coverage: </h5>
+                            <p class="card-text">
+                                <%= clouds %>%
+                            </p>
+                            <h5 class="card-title">Visibility: </h5>
+                            <p class="card-text">
+                                <%= visibility %> meters
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card card-accent-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Other info</div>
+                            <div class="card-body text-dark">
+                                <h5 class="card-title">Humidity: </h5>
+                                <p class="card-text">
+                                    <%= humidity %> g.m-3
+                                </p>
+                            </div>
+                            <div class="card-body text-dark">
+                                <h5 class="card-title">Pressure: </h5>
+                                <p class="card-text">
+                                    <%= pressure %> N·m−2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                        <% if(error !== null){ %>
+                            <p>
+                                <%= error %>
+                            </p>
+                            <% } %>
+
+                </div>
+
+                <!-- footer -->
+                <footer>
+                    <p>Copyright <i class="fa-solid fa-copyright"></i> MANASA -All Rights Reserved</p>
+                </footer>
+
+
+                <!-- Optional JavaScript -->
+                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
